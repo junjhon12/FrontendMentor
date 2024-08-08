@@ -1,62 +1,267 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!-- The character encoding for the document -->
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+  <!-- Ensures the site is responsive on different devices -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  <!-- Favicon icon displayed in the browser tab -->
   <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
   
   <title>Frontend Mentor | FAQ accordion</title>
+  <!-- Link to Google Fonts for styling text -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;600;700&display=swap">
 
-  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
   <style>
-    .attribution { font-size: 11px; text-align: center; }
-    .attribution a { color: hsl(228, 45%, 44%); }
+    /* Basic styling for the entire page */
+    body, html {
+      margin: 0; /* No space around the edges */
+      padding: 0; /* No space inside the edges */
+      height: 100%; /* Full height for body and html */
+      overflow: hidden; /* Hide any content that overflows */
+      position: relative; /* Position relative for child elements */
+      font-family: 'Work Sans', sans-serif; /* Font for text */
+    }
+    
+    /* Pseudo-elements for background styling */
+    body::before, body::after {
+      content: ""; /* Required for pseudo-elements to show up */
+      position: absolute; /* Position absolutely within body */
+      left: 0; /* Align with the left edge */
+      width: 100%; /* Full width */
+      z-index: -1; /* Send behind other content */
+    }
+
+    /* Top background */
+    body::before {
+      top: 0; /* Align with the top edge */
+      height: 44%; /* Height of top background */
+      background: url('./images/background-pattern-desktop.svg') no-repeat center center;
+      background-size: cover; /* Cover the entire area */
+    }
+
+    /* Bottom background */
+    body::after {
+      bottom: 0; /* Align with the bottom edge */
+      height: 56%; /* Height of bottom background */
+      background-color: hsl(275, 100%, 97%); /* Light pink background */
+    }
+
+    /* Attribution text styling */
+    .attribution { 
+      font-size: 11px; /* Small text size */
+      text-align: center; /* Center the text */
+    }
+    .attribution a { 
+      color: hsl(228, 45%, 44%); /* Color for attribution links */
+    }
+
+    /* Main content area styling */
+    main {
+      margin: 0; /* No space around the edges */
+      height: 100vh; /* Full viewport height */
+      display: flex; /* Use flexbox for layout */
+      justify-content: center; /* Center horizontally */
+      align-items: center; /* Center vertically */
+      z-index: 1; /* Ensure it sits above background */
+    }
+
+    /* Headings styling */
+    h1, h5 {
+      font-family: 'Work Sans', sans-serif; /* Use Work Sans font */
+      font-size: 1rem; /* Font size for h1 and h5 */
+    }
+    
+    h1 {
+      font-weight: 700; /* Bold text */
+      padding: 0 1rem; /* Padding on left and right */
+    }
+
+    /* Container for the FAQ box */
+    .box-container {
+      width: 25%; /* Set width to 25% of the parent */
+      background-color: hsl(0, 0%, 100%); /* White background */
+      padding: 2rem 3rem; /* Space inside the container */
+      border-radius: 10px; /* Rounded corners */
+      overflow: hidden; /* Hide any overflowing content */
+    }
+
+    /* Title section styling */
+    .title-section {
+      display: flex; /* Use flexbox for layout */
+      align-items: center; /* Align items in the center */
+    }
+
+    .title-section img {
+      padding: 0 1rem 0 0; /* Space to the right of the image */
+    }
+
+    /* Border for questions */
+    .One, .Two, .Three, .Four {
+      border-bottom: 1px solid hsl(275, 100%, 97%); /* Light pink border */
+    }
+
+    /* Styling for each question */
+    .question {
+      display: flex; /* Use flexbox for layout */
+      align-items: center; /* Align items in the center */
+      flex-direction: row; /* Arrange items in a row */
+      justify-content: space-between; /* Space items apart */
+      font-size: 16px; /* Font size for the question */
+    }
+
+    /* Styling for the question title */
+    .question-title {
+      font-weight: 600; /* Semi-bold text */
+      width: 70%; /* Occupy 70% of the question width */
+    }
+
+    /* Hover effect for question title */
+    .question-title:hover {
+      cursor: pointer; /* Change cursor to pointer */
+      color: hsl(292, 42%, 14%); /* Dark purple text on hover */
+    }
+
+    /* Floating image for question icon */
+    .question img {
+      float: right; /* Float image to the right */
+    }
+
+    /* Hidden answer section */
+    .answer {
+      display: none; /* Hide answer by default */
+      margin: 0; /* No space around answer */
+      color: hsl(292, 16%, 49%); /* Grayish purple text color */
+      font-size: 16px; /* Font size for the answer */
+    }
+
+    /* Show the answer when active */
+    .show {
+      display: block; /* Display the answer */
+    }
+
+    /* Styling for the question and answer section */
+    .QA-section {
+      width: 100%; /* Full width of the container */
+    }
+
+
+    /* Dark purple color class */
+    .dark-purple {
+      color: hsl(292, 42%, 14%); /* Dark purple text color */
+    }
+
+    /* Media Queries for responsive design */
+    @media (max-width: 375px) {
+      /* Styling for smaller screens (mobile) */
+      .box-container {
+        width: 80%; /* Increase width for smaller screens */
+        padding: 1rem; /* Reduce padding */
+      }
+      h1 {
+        font-size: 24px; /* Increase font size for small screens */
+      }
+      .question {
+        font-size: 14px; /* Decrease font size for small screens */
+      }
+      body::before {
+        height: 30%; /* Adjust top background height */
+      }
+      body::after {
+        height: 70%; /* Adjust bottom background height */
+      }
+      .title-section img {
+        height: 1.5rem; /* Reduce image size */
+      }
+    }
   </style>
 </head>
 <body>
   <main>
-    <div class="center-content-container">
-      <div class="content-title">
-        <img src="" alt="" class="title-img">
-        <h1>FAQs</h1>
+    <div class="box-container">
+      <!-- Title section with image and heading -->
+      <div class="title-section">
+        <img src="./images/icon-star.svg" alt=""> <!-- Star icon -->
+        <h1>FAQs</h1> <!-- Main heading -->
       </div>
-      <div class="content-questions">
-        <div class="questions">
-          <div class="questions-title"></div>
-          <img src="" alt="" class="question-img">
+      <div class="QA-section">
+        <!-- Each question and answer pair -->
+        <div class="questions One">
+          <div class="question">
+            <h5 class="question-title">What is Frontend Mentor, and how will it help me?</h5>
+            <img src="./images/icon-plus.svg" alt=""> <!-- Plus icon -->
+          </div>
+          <div class="answer">
+            <h5>
+              Frontend Mentor offers realistic coding challenges to help developers improve their 
+              frontend coding skills with projects in HTML, CSS, and JavaScript. It's suitable for 
+              all levels and ideal for portfolio building.
+            </h5>
+          </div>
+        </div>
+        <div class="questions Two">
+          <div class="question">
+            <h5 class="question-title">Is Frontend Mentor free?</h5>
+            <img src="./images/icon-plus.svg" alt=""> <!-- Plus icon -->
+          </div>
+          <div class="answer">
+            <h5>
+              Yes, Frontend Mentor offers both free and premium coding challenges, with the free 
+              option providing access to a range of projects suitable for all skill levels.
+            </h5>
+          </div>
+        </div>
+        <div class="questions Three">
+          <div class="question">
+            <h5 class="question-title">Can I use Frontend Mentor projects in my portfolio?</h5>
+            <img src="./images/icon-plus.svg" alt=""> <!-- Plus icon -->
+          </div>
+          <div class="answer">
+            <h5>
+              Yes, you can use projects completed on Frontend Mentor in your portfolio. It's an excellent
+              way to showcase your skills to potential employers!
+            </h5>
+          </div>
+        </div>
+        <div class="questions Four">
+          <div class="question">
+            <h5 class="question-title">How can I get help if I'm stuck on a Frontend Mentor challenge?</h5>
+            <img src="./images/icon-plus.svg" alt=""> <!-- Plus icon -->
+          </div>
+          <div class="answer">
+            <h5>
+              The best place to get help is inside Frontend Mentor's Discord community. There's a help 
+              channel where you can ask questions and seek support from other community members.
+            </h5>
+          </div>
         </div>
       </div>
     </div>
   </main>
 
-  
-
-  What is Frontend Mentor, and how will it help me?
-
-  Frontend Mentor offers realistic coding challenges to help developers improve their 
-  frontend coding skills with projects in HTML, CSS, and JavaScript. It's suitable for 
-  all levels and ideal for portfolio building.
-
-  Is Frontend Mentor free?
-
-  Yes, Frontend Mentor offers both free and premium coding challenges, with the free 
-  option providing access to a range of projects suitable for all skill levels.
-
-  Can I use Frontend Mentor projects in my portfolio?
-
-  Yes, you can use projects completed on Frontend Mentor in your portfolio. It's an excellent
-  way to showcase your skills to potential employers!
-
-  How can I get help if I'm stuck on a Frontend Mentor challenge?
-  
-  The best place to get help is inside Frontend Mentor's Discord community. There's a help 
-  channel where you can ask questions and seek support from other community members.
-
-  
+  <!-- Attribution text -->
   <div class="attribution">
     Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
-    Coded by <a href="#">Your Name Here</a>.
+    Coded by <a href="#">Quoc Bao Dinh Le</a>.
   </div>
+
+  <script>
+    // JavaScript to handle the question and answer toggle
+    const questions = document.querySelectorAll(".question-title");
+
+    questions.forEach((question) => {
+      question.addEventListener("click", () => {
+        // Get the answer div next to the clicked question
+        const answer = question.parentElement.nextElementSibling;
+        // Get the plus icon
+        const img = question.nextElementSibling;
+        // Toggle the answer display and icon
+        answer.classList.toggle("show");
+        question.classList.toggle("dark-purple");
+        img.src = answer.classList.contains("show") ? "./images/icon-minus.svg" : "./images/icon-plus.svg";
+      });
+    });
+  </script>
 </body>
 </html>
