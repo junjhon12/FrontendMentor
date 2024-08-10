@@ -5,270 +5,169 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;700&display=swap">
 
   <title>Frontend Mentor | Article preview component</title>
 
-  <style>
-        /* Mobile view */
-    @media (max-width: 375px) {
-      img {
-        height: 4rem;
-        width: 4rem;
-      }
-      .container-one {
-        display: flex;
-        border: 1px solid black;
-        border-radius: 10px;
-        width: 85vw;
-        height: 80vh;
-        flex-direction: column;
-        overflow: hidden;
-      }
-      .container-two {
-        background-color: lightblue;
-        height: 40%;
-      }
-      .container-two img {
-        height: 100%;
-        object-fit: fill;
-        width: 100%;
-        position: static;
-      }
-      .container-three {
-        background-color: lightcoral;
-        height: 30%;
-      }
-      .container-four {
-        
-      }
-      .container-five {
+  <!-- Link to Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;700&display=swap" rel="stylesheet">
 
-      }
-    }
-    .attribution { font-size: 11px; text-align: center; }
-    .attribution a { color: hsl(228, 45%, 44%); }
-    .Very_Dark_Grayish_Blue {
-      color: hsl(217, 19%, 35%);
-    }
-    .Desaturated_Dark_Blue {
-      color: hsl(214, 17%, 51%);
-    }
-    .Grayish_Blue {
-      color: hsl(212, 23%, 69%);
-    }
-    .Light_Grayish_Blue {
-      color: hsl(210, 46%, 95%);
-    }
-    body, html {
-      font-size: 13px;
-      font-family: 'Manrope', sans-serif;
-      background-color: hsl(210, 46%, 95%);
+  <style>
+    body {
+      margin: 0;
       padding: 0;
-      margin: 0;
-    }
-    main {
-      margin: 0;
-      height: 100vh;
+      background-color: hsl(210, 46%, 95%); /* Light Grayish Blue */
       display: flex;
+      flex-direction: column;
       justify-content: center;
       align-items: center;
+      height: 100vh;
+      font-family: 'Manrope', sans-serif; /* Apply the Manrope font */
     }
-    /* Desktop view */
-    @media (min-width: 1440px) {
-      .container-one {
-        width: 40%;
-        height: 40vh;
-        display: flex;
-        align-items: center;
-        object-fit: scale-down;
-        background-color: white;
-        border-radius: 10px;
+    main {
+      position: relative;
+      width: 80vw; /* Adjusted width for responsiveness */
+      max-width: 900px;
+      height: 40vh; /* Adjusted height */
+      border-radius: 1rem;
+      overflow: hidden;
+    }
+    .left-side, .right-side {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+    }
+    .left-side {
+      background-color: lightgreen;
+      width: 40%; /* Adjusted width for overlap */
+      left: 0;
+      z-index: 1; /* Ensure it stays behind the right-side */
+    }
+    .left-side img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .right-side {
+      background-color: white;
+      width: 64%; /* Adjusted width for overlap */
+      right: 0;
+      z-index: 2; /* Ensure it covers the left-side */
+    }
+    .right-contnent-container {
+      padding: 2rem 4rem; /* Adjusted padding */
+      height: 100%;
+      overflow: auto;
+    }
+    .right.top {
+      margin-bottom: 1rem;
+      color: hsl(217, 19%, 35%); /* Very Dark Grayish Blue */
+      font-weight: 100;
+      letter-spacing: 0.03rem;
+    }
+    .right.middle {
+      margin-bottom: 1rem;
+      color: hsl(212, 23%, 69%);
+      font-weight: 600;
+      line-height: 1.6rem;
+    }
+    .right.bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .right.left {
+      display: flex;
+      align-items: center;
+    }
+    .user-info {
+      line-height: 0.7rem;
+      color: hsl(212, 23%, 69%); /* Grayish Blue */
+    }
+    .name {
+      color: hsl(217, 19%, 35%);
+      font-weight: 800;
+    }
+    .user-img {
+      width: 20%;
+      margin-right: 1rem;
+    }
+    .user-img img {
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+      border-radius: 50%;
+    }
+    .share.button {
+      background-color: hsl(210, 46%, 95%);
+      border-radius: 50%;
+      height: 1rem; /* Adjusted height */
+      width: 1rem; /* Adjusted width */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.5rem;
+    }
+    .share.button img {
+      height: 70%;
+      width: 70%;
+      object-fit: fill;
+    }
+    .hidden {
+      display: none;
+    }
+
+    /* Media Queries for responsiveness */
+    @media (max-width: 768px) {
+      .left-side, .right-side {
+        width: 100%;
       }
-      .container-two {
-        float: left;
-        height: 100%;
-        width: 50%;
-        overflow: hidden;
-        border-radius: 10px 0 0 10px;
+      .left-side {
+        display: none; /* Hide the left-side on smaller screens if needed */
       }
-      .container-two img {
-        height: 100%;
-        object-fit: cover;
-        transition: opacity 0.3s ease;
-      }
-      .container-three {
-        float: right;
-        height: 100%;
-        width: 52%;
-      }
-      .container-four, .container-five {
-        margin: 3rem;
-      }
-      .title {
-        font-weight: 700;
-        font-size: 18px;
-        color: hsl(217, 19%, 35%);
-      }
-      .content {
-        font-weight: 500;
-        font-size: 11px;
-        line-height: 2rem;
-        color: hsl(212, 23%, 69%);
-      }
-      .container-five {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-      }
-      .info {
-        display: flex;
-        align-items: center;
-      }
-      .user-info {
-        margin-left: 10px;
-      }
-      .user-img {
-        border-radius: 50%;
-        width: 50px;
-        height: 50px;
-        object-fit: cover;
-      }
-      .name, .date {
-        margin: 0;
-      }
-      .name {
-        color: hsl(217, 19%, 35%);
-        font-weight: 700;
-      }
-      .date {
-        color: hsl(212, 23%, 69%);
-      }
-      .button {
-        object-fit: scale-down;
-        background-color: hsl(210, 46%, 95%);
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 3rem;
-        width: 3rem;
-        border-radius: 50%;
-      }
-      .button:hover {
-        cursor: pointer;
-        background-color: hsl(217, 19%, 35%);
-      }
-      .hidden {
-        display: none;
-        flex-direction: row;
-        justify-content: space-evenly;
-        margin: 2rem;
-        background-color: hsl(217, 19%, 35%);
-        color: hsl(214, 17%, 51%);
-      }
-      .share-popup {
-        position: absolute;
-        bottom: 45%;
-        right: 31.8%;
-        padding: 10px 20px;
-        background-color: hsl(217, 19%, 35%);
-        color: hsl(210, 46%, 95%);
-        border-radius: 10px;
-        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-        z-index: 10;
-        width: 16rem;
-      }
-      .share-popup::after {
-        content: '';
-        position: absolute;
-        top: 100%;
-        right: 15px;
-        width: 0;
-        height: 0;
-        border-left: 10px solid transparent;
-        border-right: 10px solid transparent;
-        border-top: 10px solid hsl(217, 19%, 35%);
-      }
-      .share-popup p {
-        color: hsl(214, 17%, 51%);
-        letter-spacing: 0.5rem;
-      }
-      .social-icons {
-        width: 5rem;
-        height: 2rem;
-        text-align: center;
-        display: flex;
-        gap: 20px;
-        align-items: center;
-      }
-      .social-icons a img {
-        height: 100%;
-      }
-      .social-icons a img:hover {
-        cursor: pointer;
-      }
-      .button.active ~ .container-two img {
-        display: none;
-      }
-      .button.active + .share-popup {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
+      .right-side {
+        width: 100%;
+        padding: 1rem; /* Adjust padding for smaller screens */
       }
     }
   </style>
 </head>
 <body>
   <main>
-    <div class="container-one">
-      <div class="container-two"><img src="./images/drawers.jpg" alt=""></div>
-      <div class="container-three">
-        <div class="container-four">
-          <p class="title">Shift the overall look and feel by adding these wonderful touches to furniture in your home</p>
-          <p class="content">Ever been in a room and felt like something was missing? Perhaps it felt slightly bare and uninviting. I’ve got some simple tips to help you make any room feel complete.</p>
+    <div class="left-side"><img src="./images/drawers.jpg" alt=""></div>
+    <div class="right-side">
+      <div class="right-contnent-container">
+        <div class="right top">
+          <h2 class="title">
+            Shift the overall look and feel by adding these wonderful touches to furniture in your home  
+          </h2>
         </div>
-        <div class="container-five">
-          <div class="info">
-            <img src="./images/avatar-michelle.jpg" alt="" class="user-img">
+        <div class="right middle">
+          <p class="content">
+            Ever been in a room and felt like something was missing? Perhaps it felt slightly bare and uninviting. I’ve got some simple tips to help you make any room feel complete.  
+          </p>
+        </div>
+        <div class="right bottom">
+          <div class="right left">
+            <div class="user-img"><img src="./images/avatar-michelle.jpg" alt=""></div>
             <div class="user-info">
               <p class="name">Michelle Appleton</p>
               <p class="date">28 Jun 2020</p>
             </div>
           </div>
-          <div class="button">
+          <div class="share button">
             <img src="./images/icon-share.svg" alt="">
-          </div>
-          <div class="share-popup hidden">
-            <div class="social-icons">
-              <p>SHARE</p>
-              <a href="https://www.facebook.com" target="_blank" aria-label="Facebook">
-                <img src="./images/icon-facebook.svg" alt="Facebook">
-              </a>
-              <a href="https://twitter.com" target="_blank" aria-label="Twitter">
-                <img src="./images/icon-twitter.svg" alt="Twitter">
-              </a>
-              <a href="https://www.pinterest.com" target="_blank" aria-label="Pinterest">
-                <img src="./images/icon-pinterest.svg" alt="Pinterest">
-              </a>
+            <div class="hidden">
+              <p>Share</p>
             </div>
           </div>
         </div>
       </div>
     </div>
   </main>
+
   <div class="attribution">
     Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
     Coded by <a href="#">Your Name Here</a>.
   </div>
-
-  <script>
-    const shareButton = document.querySelector(".button");
-    const sharePopup = document.querySelector(".share-popup");
-
-    shareButton.addEventListener("click", () => {
-      shareButton.classList.toggle("active");
-      sharePopup.classList.toggle("hidden");
-    });
-  </script>
 </body>
 </html>
