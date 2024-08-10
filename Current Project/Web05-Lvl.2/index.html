@@ -7,176 +7,376 @@
   <title>Frontend Mentor | Article preview component</title>
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;700&display=swap" rel="stylesheet">
   <style>
+    /* This is the style for the whole page. It makes sure everything is centered and looks nice. */
     body {
-      margin: 0;
-      padding: 0;
-      background-color: hsl(210, 46%, 95%);
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      font-family: 'Manrope', sans-serif;
+      margin: 0; /* No extra space around the edges */
+      padding: 0; /* No extra space inside the edges */
+      background-color: hsl(210, 46%, 95%); /* Light blue background color */
+      display: flex; /* Makes things line up nicely */
+      flex-direction: column; /* Stacks things up and down */
+      justify-content: center; /* Centers things up and down */
+      align-items: center; /* Centers things side to side */
+      height: 100vh; /* Makes sure it fills the whole screen */
+      font-family: 'Manrope', sans-serif; /* Uses a special font for the text */
     }
+    
+    /* This part styles the big box (main) where our stuff goes */
     main {
-      position: relative;
-      width: 47vw;
-      height: 40vh;
-      border-radius: 1rem;
+      position: relative; /* Lets us move this box around */
+      width: 90%; /* Takes up most of the screen width */
+      max-width: 900px; /* But not more than 900 pixels wide */
+      height: 40vh; /* Takes up 40% of the screen height */
+      max-height: 400px; /* But not more than 400 pixels tall */
+      border-radius: 1rem; /* Makes the corners rounded */
+      z-index: 1; /* Makes sure this is below other things */
     }
+    
+    /* These two parts are for the left and right sides of our box */
     .left-side, .right-side {
-      position: absolute;
-      top: 0;
-      bottom: 0;
+      position: absolute; /* Lets us put these exactly where we want */
+      top: 0; /* Starts from the top */
+      bottom: 0; /* Goes down to the bottom */
     }
+    
     .left-side {
-      background-color: lightgreen;
-      left: 0;
-      z-index: 1;
+      left: 0; /* Sticks to the left side */
+      z-index: 1; /* Below the right side */
     }
+    
     .left-side img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
+      width: 100%; /* Makes sure the image fills the box */
+      height: 100%; /* Makes sure the image fills the box */
+      object-fit: cover; /* Makes sure the image keeps its proportions */
     }
+    
     .right-side {
-      background-color: white;
-      width: 58.5%;
-      right: 0;
-      z-index: 2;
+      background-color: white; /* White background */
+      width: 58.5%; /* Takes up a little more than half of the width */
+      right: 0; /* Sticks to the right side */
+      z-index: 2; /* Above the left side */
     }
+    
+    /* This part adds padding (space inside) for the right side content */
     .right-content-container {
-      padding: 1rem 2rem;
-      height: 100%;
+      padding: 1rem 2rem; /* Space inside the box */
+      height: 100%; /* Fills the whole height */
     }
+    
+    /* This part styles the different sections inside the right side */
     .right.top {
-      margin-bottom: 1rem;
-      color: hsl(217, 19%, 35%);
-      font-weight: 100;
-      letter-spacing: 0.03rem;
+      margin-bottom: 1rem; /* Space below this section */
+      color: hsl(217, 19%, 35%); /* Dark text color */
+      font-weight: 100; /* Light text weight */
+      letter-spacing: 0.03rem; /* Space between letters */
     }
+    
     .right.middle {
-      margin-bottom: 1rem;
-      color: hsl(212, 23%, 69%);
-      font-weight: 600;
-      line-height: 1.6rem;
+      margin-bottom: 1rem; /* Space below this section */
+      color: hsl(212, 23%, 69%); /* Lighter text color */
+      font-weight: 600; /* Medium text weight */
+      line-height: 1.6rem; /* Space between lines of text */
     }
+    
     .right.bottom {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
+      display: flex; /* Lays out items in a row */
+      justify-content: space-between; /* Spreads out items */
+      align-items: center; /* Centers items vertically */
     }
+    
+    /* This part styles the left side of the bottom section */
     .right.left {
-      display: flex;
-      align-items: center;
+      display: flex; /* Lays out items in a row */
+      align-items: center; /* Centers items vertically */
     }
+    
     .user-info {
-      line-height: 0.7rem;
-      color: hsl(212, 23%, 69%);
+      line-height: 0.7rem; /* Space between lines of text */
+      color: hsl(212, 23%, 69%); /* Lighter text color */
     }
+    
     .name {
-      color: hsl(217, 19%, 35%);
-      font-weight: 800;
+      color: hsl(217, 19%, 35%); /* Darker text color */
+      font-weight: 800; /* Bold text weight */
     }
+    
     .user-img {
-      width: 20%;
-      margin-right: 1rem;
+      width: 20%; /* Makes the user image 20% wide */
+      margin-right: 1rem; /* Space to the right of the image */
     }
+    
     .user-img img {
-      width: 100%;
-      height: auto;
-      object-fit: cover;
-      border-radius: 50%;
+      width: 100%; /* Makes the image fill the box */
+      height: auto; /* Keeps the image’s proportions */
+      object-fit: cover; /* Makes sure the image looks good */
+      border-radius: 50%; /* Makes the image round */
     }
+    
+    /* This part styles the button for sharing */
     .popup.button {
-      background-color: hsl(210, 46%, 95%);
-      border-radius: 50%;
-      height: 100%;
-      width: 10%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 0.5rem;
-      position: relative;
+      background-color: hsl(210, 46%, 95%); /* Light blue background */
+      border-radius: 50%; /* Makes the button round */
+      height: 3rem; /* Makes the button 3rem tall */
+      width: 3rem; /* Makes the button 3rem wide */
+      display: flex; /* Lays out items in the button */
+      align-items: center; /* Centers items vertically */
+      justify-content: center; /* Centers items horizontally */
+      padding: 0.5rem; /* Space inside the button */
+      position: relative; /* Lets us move this button around */
+      z-index: 5; /* Makes sure this is above other things */
     }
+    
     .popup.button:hover {
-      cursor: pointer;
-      background-color: hsl(214, 17%, 51%);
-      color: #fff;
+      cursor: pointer; /* Shows a pointer when hovering */
+      background-color: hsl(214, 17%, 51%); /* Darker color when hovering */
+      color: #fff; /* White text when hovering */
     }
+    
     .popup.button img {
-      height: 70%;
-      width: 70%;
-      object-fit: fill;
+      height: 70%; /* Makes the image inside the button 70% tall */
+      width: 70%; /* Makes the image inside the button 70% wide */
+      object-fit: fill; /* Makes sure the image fits */
+      margin: 0 1rem; /* Space around the image */
     }
+    
+    /* This part styles the hidden popup */
     .hidden {
-      background-color: hsl(217, 19%, 35%);
-      width: 15rem;
-      color: #fff;
-      text-align: center;
-      border-radius: 1rem;
-      z-index: 3;
-      display: none;
-      position: absolute;
-      bottom: 4.6rem;
-      left: 50%;
-      transform: translateX(-50%);
-      padding: 1rem;
-      box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
-      align-items: center;
-      height: 2rem;
+      background-color: hsl(217, 19%, 35%); /* Dark background */
+      width: 15rem; /* Makes the popup 15rem wide */
+      color: #fff; /* White text */
+      text-align: center; /* Centers the text */
+      border-radius: 1rem; /* Makes the corners round */
+      z-index: 10; /* Makes sure this is above everything else */
+      display: none; /* Hides the popup by default */
+      position: absolute; /* Lets us move this popup around */
+      bottom: 4.6rem; /* Positions it from the bottom */
+      left: 50%; /* Centers it from the left */
+      transform: translateX(-50%); /* Makes sure it’s centered */
+      padding: 1rem; /* Space inside the popup */
+      box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2); /* Adds a shadow */
+      align-items: center; /* Centers items vertically */
+      height: 2rem; /* Makes the popup 2rem tall */
     }
+    
+    /* This part makes a little arrow below the popup */
     .hidden::after {
-      content: "";
-      position: absolute;
-      top: 100%;
-      left: 50%;
-      margin-left: -1rem;
-      border-width: 1rem;
-      border-style: solid;
-      border-color: hsl(217, 19%, 35%) transparent transparent transparent;
+      content: ""; /* No text, just an arrow */
+      position: absolute; /* Moves the arrow */
+      top: 100%; /* Positions the arrow just below the popup */
+      left: 50%; /* Centers the arrow from the left */
+      margin-left: -0.75rem; /* Moves the arrow to the center */
+      border-width: 0.75rem; /* Size of the arrow */
+      border-style: solid; /* Makes the arrow solid */
+      border-color: hsl(217, 19%, 35%) transparent transparent transparent; /* Arrow color */
     }
+    
     .hidden p {
-      color: hsl(212, 23%, 69%);
-      letter-spacing: 0.5rem;
+      color: hsl(212, 23%, 69%); /* Lighter text color */
+      letter-spacing: 0.5rem; /* Space between letters */
     }
+    
+    /* This part shows the popup when it has the "show" class */
     .show {
-      display: flex; /* Show the popup */
-      flex-direction: row;
+      display: flex; /* Shows the popup */
     }
-    #socialMedia {
-      object-fit:contain;
+    
+    .socialMedia {
+      object-fit: contain; /* Keeps the image proportions */
     }
-    @media (max-width: 768px) {
-      .left-side, .right-side {
-        width: 100%;
-      }
-      .left-side {
-        display: none;
+    
+    /* These are special rules for when the screen is not so big (like on tablets) */
+    @media (max-width: 1024px) {
+      main {
+        position: relative;
+        width: 70%;
+        max-width: 900px;
+        height: 40vh;
+        max-height: 400px;
+        border-radius: 1rem;
+        z-index: 1;
+        font-size: 0.7rem; /* Makes the text smaller */
       }
       .right-side {
-        width: 100%;
+        background-color: white;
+        width: 66%;
+        right: 0;
+        z-index: 2;
+      }
+      .title, .content, .right.bottom {
+        margin: 0; /* No extra space */
+      }
+      .popup.button {
+        background-color: hsl(210, 46%, 95%);
+        border-radius: 50%;
+        height: 2rem; /* Smaller button */
+        width: 2rem; /* Smaller button */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0.5rem;
+        position: relative;
+        z-index: 5;
+      }
+      .popup.button:hover {
+        cursor: pointer;
+        background-color: hsl(214, 17%, 51%);
+        color: #fff;
+      }
+      .popup.button img {
+        height: 70%;
+        width: 70%;
+        object-fit: fill;
+        margin: 0 1rem;
+      }
+      .hidden {
+        background-color: hsl(217, 19%, 35%);
+        width: 15rem;
+        color: #fff;
+        text-align: center;
+        border-radius: 1rem;
+        z-index: 10;
+        display: none;
+        position: absolute;
+        bottom: 4.6rem;
+        left: 50%;
+        transform: translateX(-50%);
         padding: 1rem;
+        box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+        align-items: center;
+        height: 2rem;
+      }
+      
+      .hidden::after {
+        content: "";
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        margin-left: -0.75rem;
+        border-width: 0.75rem;
+        border-style: solid;
+        border-color: hsl(217, 19%, 35%) transparent transparent transparent;
+      }
+      .hidden p {
+        color: hsl(212, 23%, 69%);
+        letter-spacing: 0.5rem;
+      }
+      .show {
+        display: flex; /* Shows the popup */
       }
     }
+    
+    /* These are special rules for when the screen is really small (like on phones) */
+    @media (max-width: 412px) {
+      main {
+        display: flex; /* Lines up items in a column */
+        flex-direction: column; /* Stacks things up and down */
+        align-items: center; /* Centers things side to side */
+        width: 80%; /* Takes up 80% of the screen width */
+        height: auto; /* Height adjusts automatically */
+        max-height: none; /* No maximum height */
+        overflow: hidden; /* Hides extra content */
+      }
+    
+      .left-side, .right-side {
+        position: relative; /* Moves these side by side */
+        width: 100%; /* Takes up the full width */
+      }
+    
+      .right-side {
+        z-index: 2;
+        order: 2; /* Puts this after the left side */
+        height: 70%; /* Takes up 70% of the height */
+        margin-top: -3rem; /* Moves it up a bit */
+      }
+    
+      .left-side {
+        z-index: 1;
+        order: 1; /* Puts this before the right side */
+        height: 100%; /* Takes up the full height */
+      }
+    
+      .right-content-container {
+        padding: 1rem; /* Space inside the container */
+      }
+    
+      .title, .content, .right.bottom {
+        margin: 0; /* No extra space */
+      }
+    
+      .popup.button {
+        background-color: hsl(210, 46%, 95%);
+        border-radius: 50%;
+        width: 3rem; /* Makes the button bigger */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0.5rem;
+        position: relative;
+        z-index: 10;
+      }
+      .popup.button:hover {
+        cursor: pointer;
+        background-color: hsl(214, 17%, 51%);
+        color: #fff;
+      }
+      .popup.button img {
+        height: 70%;
+        width: 70%;
+        object-fit: fill;
+        margin: 0 1rem;
+      }
+      .hidden {
+        background-color: hsl(217, 19%, 35%);
+        color: #fff;
+        text-align: center;
+        border-radius: 1rem;
+        z-index: 10;
+        display: none;
+        position: static; /* Stays in the flow of the page */
+        padding: 1rem;
+        box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+        align-items: center;
+        height: 2rem;
+      }
+      
+      .hidden::after {
+        /* No arrow here */
+      }
+      .hidden p {
+        color: hsl(212, 23%, 69%);
+        letter-spacing: 0.5rem;
+      }
+      .show {
+        display: flex; /* Shows the popup */
+      }
+      .socialMedia {
+        object-fit: contain; /* Keeps the image proportions */
+      }
+    }
+    
   </style>
 </head>
 <body>
   <main>
+    <!-- This is the left side with the image -->
     <div class="left-side"><img src="./images/drawers.jpg" alt=""></div>
+    <!-- This is the right side with the text and share button -->
     <div class="right-side">
       <div class="right-content-container">
+        <!-- This is the top part with the title -->
         <div class="right top">
           <h2 class="title">
             Shift the overall look and feel by adding these wonderful touches to furniture in your home  
           </h2>
         </div>
+        <!-- This is the middle part with the content -->
         <div class="right middle">
           <p class="content">
             Ever been in a room and felt like something was missing? Perhaps it felt slightly bare and uninviting. I’ve got some simple tips to help you make any room feel complete.  
           </p>
         </div>
+        <!-- This is the bottom part with the user info and share button -->
         <div class="right bottom">
+          <!-- This is the part with user info -->
           <div class="right left">
             <div class="user-img"><img src="./images/avatar-michelle.jpg" alt=""></div>
             <div class="user-info">
@@ -185,13 +385,14 @@
             </div>
           </div>
 
+          <!-- This is the share button -->
           <div class="popup button">
             <img src="./images/icon-share.svg" alt="Share">
             <div class="hidden" id="popup">
               <p>SHARE</p>
-              <img src="./images/icon-facebook.svg" alt="facebook" id="socialMedia">
-              <img src="./images/icon-twitter.svg" alt="twitter" id="socialMedia">
-              <img src="./images/icon-pinterest.svg" alt="pinterest" id="socialMedia">
+              <img src="./images/icon-facebook.svg" alt="Facebook" class="socialMedia">
+              <img src="./images/icon-twitter.svg" alt="Twitter" class="socialMedia">
+              <img src="./images/icon-pinterest.svg" alt="Pinterest" class="socialMedia">
             </div>
           </div>
         </div>
@@ -199,16 +400,19 @@
     </div>
   </main>
 
+  <!-- This is the part at the bottom with credits -->
   <div class="attribution">
     Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
-    Coded by <a href="#">Your Name Here</a>.
+    Coded by <a href="#">Quoc Bao Dinh Le</a>.
   </div>
+  
+  <!-- This is the code that makes the share button work -->
   <script>
     const shareButton = document.querySelector(".popup.button");
     const popup = document.getElementById("popup");
 
     shareButton.addEventListener("click", () => {
-      popup.classList.toggle("show"); // Toggles the "show" class
+      popup.classList.toggle("show"); // Toggles the "show" class to show or hide the popup
     });
   </script>
 </body>
