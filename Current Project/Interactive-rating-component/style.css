@@ -1,0 +1,91 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+body {
+    background-color: hsl(216, 12%, 8%);
+    color: hsl(0, 0%, 100%);
+    font-family: 'Overpass', sans-serif;
+    
+}
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+.rating-container {
+    background-color: hsl(213, 19%, 18%);
+    width: 15%;
+    height: auto;
+    padding: 2%;
+    border-radius: 1em;
+    overflow: hidden;
+}
+.rating-main-content {
+    height: 100%;
+    width: auto;
+    background-color: hsl(213, 19%, 18%);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+.component.one {
+    padding: 10% 0;
+}
+.component.one img {
+    background-color: hsl(217, 12%, 63%);
+    border-radius: 50%;
+    padding: 5%;
+}
+.component.two {
+}
+#title {
+    font-size: 0.9em;
+}
+.component.three {
+    padding: 5% 0;
+}
+.component.three p {
+    letter-spacing: 0.01em;
+    line-height: 1.3em;
+    font-size: 15px;
+    font-weight: 400;
+    color: hsl(217, 12%, 63%);
+}
+.component.four {
+    display: flex;
+    align-self: center;
+    justify-content:space-between;
+    width: 100%;
+    padding: 5% 0;
+}
+.feedback-number {
+    border-radius: 50%;
+    background-color: hsl(217, 12%, 63%);
+    padding: 0.5em;
+    width: 1.5em;
+    justify-content: center;
+    display: flex;
+}
+.component.five {
+    height: 13%;
+    padding: 5% 0 0 0;
+}
+.component.five span{
+    background-color: hsl(25, 97%, 53%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 1em;
+    height: 2em;
+    color: black;
+    font-weight: 700;
+}
+#button:hover {
+    cursor: pointer;
+}
+.thankYou-container {
+    display: none;
+}
