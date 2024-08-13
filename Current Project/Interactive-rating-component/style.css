@@ -24,7 +24,7 @@ main {
     max-width: 400px; /* Ensures it doesn't get too large on wider screens */
     height: auto;
     padding: 1em 2em;
-    border-radius: 1em;
+    border-radius: 2em;
     overflow: hidden;
 }
 
