@@ -5,6 +5,49 @@
     box-sizing: border-box;
 }
 
+/* Portrait orientation: when your screen is taller than it is wide */
+@media (orientation: portrait) {
+    .rating-container, .thankYou-container {
+        width: 95%; /* Make the box a bit wider */
+        max-width: none; /* Let it be as wide as it wants */
+    }
+
+    .feedback-number {
+        width: 2.5rem; /* Make the buttons a little smaller */
+        height: 2.5rem; /* Make the buttons shorter too */
+    }
+
+    .thankYou-image img {
+        width: 80px; /* Make the image a bit smaller */
+    }
+
+    .thankYou-selection-background {
+        margin: 0 3rem; /* Make the space on the sides smaller */
+    }
+}
+
+/* Landscape orientation: when your screen is wider than it is tall */
+@media (orientation: landscape) {
+    .rating-container, .thankYou-container {
+        width: 85%; /* Make the box a bit narrower */
+        max-width: 600px; /* Let it be as wide as 600px */
+    }
+
+    .feedback-number {
+        width: 3rem; /* Make the buttons a bit bigger */
+        height: 3rem; /* Make the buttons taller too */
+    }
+
+    .thankYou-image img {
+        width: 100px; /* Keep the image size the same */
+    }
+
+    .thankYou-selection-background {
+        margin: 0 6rem; /* Make the space on the sides bigger */
+    }
+}
+
+
 /* Styles for the whole page */
 body {
     background-color: hsl(216, 12%, 8%); /* Dark background color for the whole page */
