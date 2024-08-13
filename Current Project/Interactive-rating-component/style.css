@@ -1,13 +1,15 @@
 * {
     padding: 0;
     margin: 0;
+    box-sizing: border-box;
 }
+
 body {
     background-color: hsl(216, 12%, 8%);
     color: hsl(0, 0%, 100%);
     font-family: 'Overpass', sans-serif;
-    
 }
+
 main {
     display: flex;
     justify-content: center;
@@ -15,75 +17,108 @@ main {
     height: 100vh;
     margin: 0;
 }
+
 .rating-container {
     background-color: hsl(213, 19%, 18%);
-    width: 20%;
+    width: 90%;
+    max-width: 400px; /* Ensures it doesn't get too large on wider screens */
     height: auto;
     padding: 1em 2em;
     border-radius: 1em;
     overflow: hidden;
 }
+
 .rating-main-content {
     height: 100%;
-    width: auto;
+    width: 100%; /* Ensures full width usage */
     background-color: hsl(213, 19%, 18%);
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
 }
+
 .component.one {
     padding: 10% 0;
 }
+
 .component.one img {
     background-color: hsl(217, 12%, 63%);
     border-radius: 50%;
-    padding: 5%;
+    padding: 3%;
+    max-width: 100%; /* Ensures responsiveness */
+    height: auto; /* Maintains aspect ratio */
 }
+
 #title {
-    font-size: 0.9em;
+    font-size: 1em; /* Adjusted to be more flexible */
 }
+
 .component.three {
-    padding: 5% 0;
+    padding: 3% 0;
 }
+
 .component.three p {
-    letter-spacing: 160%;
-    line-height: 160%;
-    font-size: 15px;
+    letter-spacing: 0.1em; /* Adjusted for readability */
+    line-height: 1.6; /* Adjusted for readability */
+    font-size: 0.8rem; /* More flexible font size */
     font-weight: 400;
     color: hsl(217, 12%, 63%);
 }
+
 .component.four {
     display: flex;
-    align-self: center;
-    justify-content:space-between;
+    align-items: center; /* Aligns items vertically */
+    justify-content: space-between; /* Distributes space evenly */
     width: 100%;
+    padding: 3% 0;
+}
+
+.feedback-number {
+    border-radius: 50%; /* Makes the button a perfect circle */
+    background-color: hsl(217, 12%, 63%);
+    padding: 1em; /* Adds padding to make the button larger */
+    color: white; /* Text color */
+    font-weight: 700; /* Bold text */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 3rem; /* Fixed width */
+    height: 3rem; /* Fixed height to maintain circular shape */
+    text-align: center; /* Centers the text horizontally */
+    line-height: 2.5rem; /* Centers the text vertically */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s ease; /* Smooth color transition */
+}
+
+.feedback-number:hover {
+    background-color: hsl(0, 0%, 100%);
+    color: black;
+}
+.feedback-number.active {
+    background-color: hsl(25, 97%, 53%);
+}
+
+.component.five {
+    height: auto; /* Adjusted for flexible height */
     padding: 5% 0;
 }
-.feedback-number {
-    border-radius: 50%;
-    background-color: hsl(217, 12%, 63%);
-    padding: 5%;
-    width: 6%;
-    justify-content: center;
-    display: flex;
-}
-.component.five {
-    height: 13%;
-    padding: 5% 0 0 0;
-}
-.component.five span{
+
+.component.five span {
     background-color: hsl(25, 97%, 53%);
     display: flex;
     justify-content: center;
     align-items: center;
-    border-radius: 1em;
-    height: 2rem;
+    border-radius: 2em;
+    height: 2.6rem;
     color: black;
     font-weight: 700;
+    padding: 0 1em; /* Added padding for better text alignment */
 }
+
 #button:hover {
     cursor: pointer;
 }
+
 .thankYou-container {
     display: none;
 }
