@@ -126,6 +126,7 @@
     /* Floating image for question icon */
     .question img {
       float: right; /* Float image to the right */
+      cursor: pointer; /* Change cursor to pointer */
     }
 
     /* Hidden answer section */
@@ -247,21 +248,22 @@
   </div>
 
   <script>
-    // JavaScript to handle the question and answer toggle
-    const questions = document.querySelectorAll(".question-title");
+        // JavaScript to handle the question and answer toggle
+    const questions = document.querySelectorAll(".question");
 
     questions.forEach((question) => {
       question.addEventListener("click", () => {
         // Get the answer div next to the clicked question
-        const answer = question.parentElement.nextElementSibling;
-        // Get the plus icon
-        const img = question.nextElementSibling;
+        const answer = question.nextElementSibling;
+        // Get the plus or minus icon
+        const img = question.querySelector("img");
         // Toggle the answer display and icon
         answer.classList.toggle("show");
-        question.classList.toggle("dark-purple");
+        question.querySelector(".question-title").classList.toggle("dark-purple");
         img.src = answer.classList.contains("show") ? "./images/icon-minus.svg" : "./images/icon-plus.svg";
       });
     });
+
   </script>
 </body>
 </html>
