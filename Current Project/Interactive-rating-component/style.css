@@ -1,124 +1,202 @@
+/* Apply to all elements: remove default padding and margin, and use border-box for box-sizing */
 * {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
 }
 
+/* Styles for the whole page */
 body {
-    background-color: hsl(216, 12%, 8%);
-    color: hsl(0, 0%, 100%);
-    font-family: 'Overpass', sans-serif;
+    background-color: hsl(216, 12%, 8%); /* Dark background color for the whole page */
+    color: hsl(0, 0%, 100%); /* White text color for good contrast */
+    font-family: 'Overpass', sans-serif; /* Uses the 'Overpass' font */
 }
 
+/* Center content inside the main element */
 main {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
+    justify-content: center; /* Centers items horizontally */
+    align-items: center; /* Centers items vertically */
+    height: 100vh; /* Full viewport height */
     margin: 0;
 }
 
+/* Container for the rating system */
 .rating-container {
-    background-color: hsl(213, 19%, 18%);
-    width: 90%;
-    max-width: 400px; /* Ensures it doesn't get too large on wider screens */
-    height: auto;
-    padding: 1em 2em;
-    border-radius: 2em;
-    overflow: hidden;
+    background-color: hsl(213, 19%, 18%); /* Dark background for the container */
+    width: 90%; /* Takes up 90% of the screen width */
+    max-width: 400px; /* Maximum width to prevent it from being too wide */
+    padding: 1em 2em; /* Padding inside the container */
+    border-radius: 2em; /* Rounded corners */
+    overflow: hidden; /* Hides anything that goes outside the container */
 }
 
+/* Main content area within the rating container */
 .rating-main-content {
     height: 100%;
-    width: 100%; /* Ensures full width usage */
-    background-color: hsl(213, 19%, 18%);
+    width: 100%; /* Full width of the container */
+    background-color: hsl(213, 19%, 18%); /* Matches the container's background */
     display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
+    flex-direction: column; /* Stacks items vertically */
+    justify-content: space-evenly; /* Space out items evenly */
 }
 
+/* Styling for the first component, usually an image */
 .component.one {
-    padding: 10% 0;
+    padding: 10% 0; /* Padding on top and bottom */
 }
 
 .component.one img {
-    background-color: hsl(217, 12%, 63%);
-    border-radius: 50%;
-    padding: 3%;
-    max-width: 100%; /* Ensures responsiveness */
-    height: auto; /* Maintains aspect ratio */
+    background-color: hsl(240, 1%, 17%); /* Dark background for the image */
+    border-radius: 50%; /* Circular image */
+    padding: 3%; /* Padding around the image */
+    max-width: 100%; /* Ensures the image doesn't get too big */
+    height: 3rem; /* Fixed height */
+    width: 3rem; /* Fixed width */
 }
 
+/* Styling for the title text */
 #title {
-    font-size: 1em; /* Adjusted to be more flexible */
+    font-size: 1em; /* Flexible font size */
 }
 
+/* Styling for the message component */
 .component.three {
-    padding: 3% 0;
+    padding: 3% 0; /* Padding on top and bottom */
 }
 
 .component.three p {
-    letter-spacing: 0.1em; /* Adjusted for readability */
-    line-height: 1.6; /* Adjusted for readability */
-    font-size: 0.8rem; /* More flexible font size */
-    font-weight: 400;
-    color: hsl(217, 12%, 63%);
+    letter-spacing: 0.1em; /* Space between letters */
+    line-height: 1.6; /* Space between lines of text */
+    font-size: 0.8rem; /* Flexible font size */
+    font-weight: 400; /* Normal font weight */
+    color: hsl(217, 12%, 63%); /* Light gray text color */
 }
 
+/* Styling for the feedback number buttons */
 .component.four {
     display: flex;
-    align-items: center; /* Aligns items vertically */
-    justify-content: space-between; /* Distributes space evenly */
+    align-items: center; /* Aligns buttons vertically */
+    justify-content: space-between; /* Spaces buttons out evenly */
     width: 100%;
-    padding: 3% 0;
+    padding: 3% 0; /* Padding on top and bottom */
 }
 
+/* Styling for each feedback number button */
 .feedback-number {
-    border-radius: 50%; /* Makes the button a perfect circle */
-    background-color: hsl(217, 12%, 63%);
-    padding: 1em; /* Adds padding to make the button larger */
-    color: white; /* Text color */
+    border-radius: 50%; /* Makes the button circular */
+    background-color: hsl(240, 1%, 17%); /* Dark background color */
+    padding: 1em; /* Padding inside the button */
+    color: white; /* White text color */
     font-weight: 700; /* Bold text */
     display: flex;
-    justify-content: center;
-    align-items: center;
+    justify-content: center; /* Centers text horizontally */
+    align-items: center; /* Centers text vertically */
     width: 3rem; /* Fixed width */
-    height: 3rem; /* Fixed height to maintain circular shape */
-    text-align: center; /* Centers the text horizontally */
-    line-height: 2.5rem; /* Centers the text vertically */
-    cursor: pointer; /* Pointer cursor on hover */
-    transition: background-color 0.3s ease; /* Smooth color transition */
+    height: 3rem; /* Fixed height */
+    text-align: center; /* Centers text inside */
+    line-height: 3rem; /* Centers text vertically */
+    cursor: pointer; /* Changes cursor to a pointer on hover */
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth changes on hover */
 }
 
 .feedback-number:hover {
-    background-color: hsl(0, 0%, 100%);
-    color: black;
-}
-.feedback-number.active {
-    background-color: hsl(25, 97%, 53%);
+    background-color: hsl(0, 0%, 100%); /* Light background color on hover */
+    color: black; /* Black text color on hover */
+    transform: scale(1.1); /* Slightly enlarges the button on hover */
 }
 
+.feedback-number.active {
+    background-color: hsl(25, 97%, 53%); /* Highlight color for the active button */
+}
+
+/* Styling for the submit button */
 .component.five {
-    height: auto; /* Adjusted for flexible height */
-    padding: 5% 0;
+    padding: 5% 0; /* Padding on top and bottom */
 }
 
 .component.five span {
-    background-color: hsl(25, 97%, 53%);
+    background-color: hsl(25, 97%, 53%); /* Background color of the button */
     display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 2em;
-    height: 2.6rem;
-    color: black;
-    font-weight: 700;
-    padding: 0 1em; /* Added padding for better text alignment */
+    justify-content: center; /* Centers text horizontally */
+    align-items: center; /* Centers text vertically */
+    border-radius: 2em; /* Rounded corners for the button */
+    height: 2.6rem; /* Fixed height */
+    color: black; /* Black text color */
+    font-weight: 700; /* Bold text */
+    padding: 0 1em; /* Padding on left and right */
 }
 
+/* Cursor style for the submit button */
 #button:hover {
-    cursor: pointer;
+    cursor: pointer; /* Changes cursor to pointer on hover */
 }
 
+/* Styling for the thank you container */
 .thankYou-container {
-    display: none;
+    background-color: hsl(213, 19%, 18%); /* Dark background color */
+    width: 90%; /* Takes up 90% of the screen width */
+    max-width: 400px; /* Maximum width to prevent it from being too wide */
+    margin: auto; /* Centers the container horizontally */
+    padding: 2em; /* Padding inside the container */
+    border-radius: 2em; /* Rounded corners */
+    overflow: hidden; /* Hides anything that goes outside the container */
+    text-align: center; /* Centers text inside */
+    display: flex;
+    flex-direction: column; /* Stacks items vertically */
+    align-items: center; /* Centers items horizontally */
+}
+
+/* Main content area within the thank you container */
+.thankYou-content {
+    display: flex;
+    flex-direction: column; /* Stacks items vertically */
+    justify-content: space-evenly; /* Space out items evenly */
+    height: 100%;
+    width: 100%; /* Full width of the container */
+}
+
+/* Styling for the thank you image */
+.thankYou-image {
+    margin-bottom: 1.5em; /* Space below the image */
+}
+
+.thankYou-image img {
+    width: 100px; /* Fixed width */
+    height: auto; /* Adjusts height to maintain aspect ratio */
+}
+
+/* Styling for the rating selection text */
+.thankYou-selection {
+    margin-bottom: 1em; /* Space below the selection text */
+}
+
+.thankYou-selection-background {
+    background-color: hsl(240, 1%, 17%); /* Dark background color */
+    margin: 0 5rem; /* Margin on left and right */
+    border-radius: 2rem; /* Rounded corners */
+    padding: 0.3rem; /* Padding around the text */
+}
+
+.thankYou-selection span {
+    font-size: 0.9em; /* Slightly smaller font size */
+    font-weight: 700; /* Bold text */
+    color: hsl(25, 97%, 53%); /* Highlight color for the selected rating */
+}
+
+/* Styling for the thank you title */
+.thankYou-title {
+    margin: 1em 0; /* Space above and below the title */
+}
+
+.thankYou-title h2 {
+    font-size: 1.7em; /* Larger font size for the title */
+    color: hsl(0, 0%, 100%); /* White text color */
+}
+
+/* Styling for the thank you message */
+.thankYou-message p {
+    font-size: 0.92em; /* Slightly smaller font size */
+    line-height: 1.5; /* Space between lines of text */
+    color: hsl(217, 12%, 63%); /* Light gray text color */
 }

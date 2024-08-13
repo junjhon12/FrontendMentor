@@ -9,7 +9,7 @@
   <title>Frontend Mentor | Interactive rating component</title>
   <link href="https://fonts.googleapis.com/css2?family=Overpass:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./style.css">
-  <script src="./script.js"></script>
+  <script src="./script.js" defer></script> <!-- Ensure JS is loaded after HTML -->
 
   <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
   <style>
@@ -31,7 +31,7 @@
         </div>
         <div class="component three" id="message">
           <p>Please let us know how we did with your support request. All feedback is appreciated 
-    to help us improve our offering!</p>
+            to help us improve our offering!</p>
         </div>
         <div class="component four">
           <span class="feedback-number" id="button">1</span>
@@ -41,31 +41,37 @@
           <span class="feedback-number" id="button">5</span>
         </div>
         <div class="component five">
-          <span type="button" id="button">Submit</span>
+          <span type="button" id="submit">Submit</span>
         </div>  
       </div>
     </div>
-  <!-- Rating state end -->
+    <!-- Rating state end -->
 
-  <!-- Thank you state start -->
-    <div class="thankYou-container">
-      <img-container>
-        <img src="./images/illustration-thank-you.svg" alt="">
-      </img-container>
-      <userSelection-container>
-        <span>You selected <!-- Add rating here --> out of 5</span>
-      </userSelection-container>
-      <div class="thanks-container" id="title">
-        <h2>Thank you!</h2>
-      </div>
-      <div class="message-container" id="message">
-        <p>We appreciate you taking the time to give a rating. If you ever need more support, 
-  don’t hesitate to get in touch!</p>
+    <!-- Thank you state start -->
+    <div class="thankYou-container" style="display: none;">
+      <div class="thankYou-content">
+        <div class="thankYou-image">
+          <img src="./images/illustration-thank-you.svg" alt="Thank you illustration">
+        </div>
+        <div class="thankYou-selection">
+          <div class="thankYou-selection-background">
+            <span>You selected <span id="selected-rating">0</span> out of 5</span>
+          </div>
+        </div>
+        <div class="thankYou-title">
+          <h2>Thank you!</h2>
+        </div>
+        <div class="thankYou-message">
+          <p>We appreciate you taking the time to give a rating. If you ever need more support, 
+            don’t hesitate to get in touch!</p>
+        </div>
       </div>
     </div>
-</main>
-  <!-- Thank you state end -->
+    
 
+    <!-- Thank you state end -->
+
+  </main>
   
   <div class="attribution">
     Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
