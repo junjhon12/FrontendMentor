@@ -2,77 +2,76 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Makes sure the site looks good on different devices -->
 
-  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png"> <!-- Shows a small icon in the browser tab -->
   
-  <title>Frontend Mentor | Interactive rating component</title>
-  <link href="https://fonts.googleapis.com/css2?family=Overpass:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="./style.css">
-  <script src="./script.js" defer></script> <!-- Ensure JS is loaded after HTML -->
+  <title>Frontend Mentor | Interactive rating component</title> <!-- Title of the page, shown in the browser tab -->
+  <link href="https://fonts.googleapis.com/css2?family=Overpass:wght@400;700&display=swap" rel="stylesheet"> <!-- Adds a special font from the web -->
+  <link rel="stylesheet" href="./style.css"> <!-- Connects to the CSS file for styling the page -->
+  <script src="./script.js" defer></script> <!-- Loads the JavaScript file to add interactivity after the HTML loads -->
 
-  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <!-- Extra styles that you can remove or change -->
   <style>
-    .attribution { font-size: 11px; text-align: center; }
-    .attribution a { color: hsl(228, 45%, 44%); }
+    .attribution { font-size: 11px; text-align: center; } 
+    .attribution a { color: hsl(228, 45%, 44%); } 
   </style>
 </head>
 <body>
   
   <main>
-    <!-- Rating state start -->
+    <!-- This part is for showing the rating system -->
     <div class="rating-container">
       <div class="rating-main-content">
         <div class="component one">
-          <img src="./images/icon-star.svg" alt="Star icon" />
+          <img src="./images/icon-star.svg" alt="Star icon" /> <!-- Star image for rating -->
         </div>
         <div class="component two" id="title">
-          <h2>How did we do?</h2>
+          <h2>How did we do?</h2> <!-- Question asking for feedback -->
         </div>
         <div class="component three" id="message">
           <p>Please let us know how we did with your support request. All feedback is appreciated 
-            to help us improve our offering!</p>
+            to help us improve our offering!</p> <!-- Text asking for feedback -->
         </div>
         <div class="component four">
-          <span class="feedback-number" id="button">1</span>
+          <span class="feedback-number" id="button">1</span> <!-- Buttons for selecting a rating -->
           <span class="feedback-number" id="button">2</span>
           <span class="feedback-number" id="button">3</span>
           <span class="feedback-number" id="button">4</span>
           <span class="feedback-number" id="button">5</span>
         </div>
         <div class="component five">
-          <span type="button" id="submit">Submit</span>
+          <span type="button" id="submit">Submit</span> <!-- Button to submit the rating -->
         </div>  
       </div>
     </div>
-    <!-- Rating state end -->
+    <!-- End of the rating system -->
 
-    <!-- Thank you state start -->
+    <!-- This part is shown after submitting the rating -->
     <div class="thankYou-container" style="display: none;">
       <div class="thankYou-content">
         <div class="thankYou-image">
-          <img src="./images/illustration-thank-you.svg" alt="Thank you illustration">
+          <img src="./images/illustration-thank-you.svg" alt="Thank you illustration"> <!-- Image showing thanks -->
         </div>
         <div class="thankYou-selection">
           <div class="thankYou-selection-background">
-            <span>You selected <span id="selected-rating">0</span> out of 5</span>
+            <span>You selected <span id="selected-rating">0</span> out of 5</span> <!-- Shows the selected rating -->
           </div>
         </div>
         <div class="thankYou-title">
-          <h2>Thank you!</h2>
+          <h2>Thank you!</h2> <!-- Text thanking the user -->
         </div>
         <div class="thankYou-message">
           <p>We appreciate you taking the time to give a rating. If you ever need more support, 
-            don’t hesitate to get in touch!</p>
+            don’t hesitate to get in touch!</p> <!-- Message offering more support -->
         </div>
       </div>
     </div>
-    
-
-    <!-- Thank you state end -->
+    <!-- End of the thank you message -->
 
   </main>
   
+  <!-- Attribution section at the bottom of the page -->
   <div class="attribution">
     Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
     Coded by <a href="#">Your Name Here</a>.
