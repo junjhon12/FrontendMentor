@@ -37,3 +37,35 @@
   </footer>
 </body>
 </html>
+
+function main_content() {
+  return (
+      <main>
+          <div className="left-side-container">
+              <div className="logo-container">
+                  <img src="./assets/logo.svg" alt="Company Logo" />
+              </div>
+              <div className="title-container">
+                  <h1>We're coming soon</h1>
+              </div>
+              <div className="message-container">
+                  <p>Hello fellow shoppers! We're currently building our new fashion store. 
+                     Add your email below to stay up-to-date with announcements and our launch deals.</p>
+              </div>
+              <div className="user-email-container">
+                  <form method="post">
+                      <input type="email" name="email" placeholder="Email Address" required />
+                      <input type="submit" value=">" />    
+                  </form>
+              </div>
+          </div>
+          <div className="right-side-container">
+              <div className="right-img-container">
+                  <img src="./assets/hero-desktop.jpg" alt="" />
+              </div>
+          </div>
+      </main>
+  );
+}
+
+export default main_content;

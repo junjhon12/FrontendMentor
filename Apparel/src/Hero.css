@@ -1,0 +1,71 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;600&display=swap');
+* {
+    padding: 0;
+    margin: 0;
+    font-family: 'Josefin Sans', sans-serif;
+    box-sizing: border-box;
+}
+main {
+    display: flex;
+    min-height: 100vh;
+    min-width: 100%;
+    overflow: hidden;
+}
+.left-side-container, .right-side-container {
+    flex: 1;
+    height: 100vh;
+}
+
+.left-side-container {
+    background-color: lightcoral;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.left-side-components {
+    background-color: lightcyan;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    padding: 0rem 5rem;
+    padding-bottom: 8rem;
+}
+
+.logo-container, .title-container, .message-container, .user-email-container {
+    margin: 2rem 5rem;
+}
+
+.logo-container {
+    margin-bottom: 8rem;
+}
+.title-container {
+    letter-spacing: 0.7rem;
+    display: flex;
+    flex-direction: column;
+    justify-content:space-between;
+    font-size: 1.5rem;
+    margin-bottom: 0;
+    margin-top: 1rem;
+}
+.title-container .first {
+    font-weight: 200;
+    color: hsl(0, 36%, 70%);
+}
+.message-container {
+    margin-top: 1.5rem;
+    line-height: 1.5rem;
+    color: hsl(0, 36%, 70%);
+}
+.user-email-container {
+    height: 10%;
+}
+.email-form {
+    
+}
+
+
+.right-side-container {
+    background-color: lightblue;
+}
