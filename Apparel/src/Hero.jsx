@@ -26,7 +26,7 @@ function Hero(){
                 <div className="user-email-container">
                     <form method="post">
                         <input type="email" name="email" placeholder="Email Address" required />
-                        <input type="submit" value=">" />    
+                        <button type="button"><img src={iconArrow} alt="" /></button>  
                     </form>
                 </div>    
             </div>

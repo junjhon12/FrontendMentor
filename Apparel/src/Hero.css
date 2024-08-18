@@ -17,13 +17,11 @@ main {
 }
 
 .left-side-container {
-    background-color: lightcoral;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 .left-side-components {
-    background-color: lightcyan;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -34,7 +32,7 @@ main {
 }
 
 .logo-container, .title-container, .message-container, .user-email-container {
-    margin: 2rem 5rem;
+    margin: 2rem 4.5rem;
 }
 
 .logo-container {
@@ -57,13 +55,48 @@ main {
     margin-top: 1.5rem;
     line-height: 1.5rem;
     color: hsl(0, 36%, 70%);
+    font-size: 16px;
 }
+
 .user-email-container {
-    height: 10%;
+    display: flex;
+    align-items: center;
 }
-.email-form {
-    
+
+form {
+    display: flex;
+    width: 100%;
+    padding-left: 5%;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+    border-radius: 2rem;
+    border: 1px solid hsl(0, 6%, 24%);
 }
+
+input[type="email"] {
+    width: 100%;
+    height: 100%;
+    background: none;
+    border: 0;
+    padding: 0;
+    outline: none; 
+}
+input[type="email"]::placeholder {
+    color: hsl(0, 36%, 70%);
+}
+button {
+    height: 3.4rem;
+    width: 6rem;
+    background-color: hsl(0, 36%, 70%);
+    color: #ffffff;
+    text-transform: uppercase;
+    border-style: none;
+    border-radius: 2rem;
+    cursor: pointer;
+    outline: none;
+}
+
 
 
 .right-side-container {
