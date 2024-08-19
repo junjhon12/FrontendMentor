@@ -170,3 +170,88 @@ button:hover {
     display: flex;
     justify-content: flex-end;
 }
+
+@media (max-width: 1200px) {
+    .left-side-components {
+        margin: 0 15%; /* Adjust margin for medium screens */
+    }
+
+    .title-container {
+        letter-spacing: 0.4rem;
+        font-size: 1.3rem;
+        line-height: 3rem;
+    }
+
+    .logo-container {
+        margin-bottom: 10rem;
+    }
+
+    .message-container {
+        font-size: 15px;
+        margin-bottom: 4%;
+    }
+}
+
+@media (max-width: 768px) {
+    main {
+        flex-direction: column;
+    }
+
+    .left-side-components {
+        margin: 0 10%; /* Adjust margin for smaller screens */
+    }
+
+    .title-container {
+        letter-spacing: 0.2rem;
+        font-size: 1.1rem;
+        line-height: 2.5rem;
+    }
+
+    .logo-container {
+        margin-bottom: 5rem;
+    }
+
+    .message-container {
+        font-size: 14px;
+        margin-bottom: 3%;
+    }
+
+    input[type="email"] {
+        width: calc(100% - 5rem); /* Adjust width for smaller screens */
+    }
+
+    button {
+        left: 80%;
+        width: 5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .left-side-components {
+        margin: 0 5%; /* Adjust margin for extra small screens */
+    }
+
+    .title-container {
+        letter-spacing: 0.1rem;
+        font-size: 1rem;
+        line-height: 2rem;
+    }
+
+    .logo-container {
+        margin-bottom: 3rem;
+    }
+
+    .message-container {
+        font-size: 13px;
+        margin-bottom: 2%;
+    }
+
+    input[type="email"] {
+        width: calc(100% - 4rem); /* Adjust width for very small screens */
+    }
+
+    button {
+        left: 75%;
+        width: 4rem;
+    }
+}
