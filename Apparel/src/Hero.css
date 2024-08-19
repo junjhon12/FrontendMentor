@@ -1,16 +1,25 @@
 @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;600&display=swap');
+
 * {
     padding: 0;
     margin: 0;
     font-family: 'Josefin Sans', sans-serif;
     box-sizing: border-box;
 }
+
+.color {
+    color: hsl(0, 36%, 70%);
+    color: hsl(0, 93%, 68%);
+    color: hsl(0, 6%, 24%);
+}
+
 main {
     display: flex;
     min-height: 100vh;
     min-width: 100%;
     overflow: hidden;
 }
+
 .left-side-container, .right-side-container {
     flex: 1;
     height: 100vh;
@@ -20,45 +29,49 @@ main {
     display: flex;
     justify-content: center;
     align-items: center;
+    
 }
+
 .left-side-components {
     display: flex;
     flex-direction: column;
     justify-content: center;
     width: 100%;
-    height: 100%;
-    padding: 0rem 5rem;
-    padding-bottom: 8rem;
+    height: auto;
+    margin: 0 25%;
 }
 
 .logo-container, .title-container, .message-container, .user-email-container {
-    margin: 2rem 4.5rem;
+    margin: 2% 0;
 }
 
 .logo-container {
-    margin-bottom: 8rem;
+    margin-bottom: 14rem;
 }
+
 .title-container {
     letter-spacing: 0.7rem;
     display: flex;
     flex-direction: column;
-    justify-content:space-between;
+    justify-content: space-between;
     font-size: 1.5rem;
-    margin-bottom: 0;
-    margin-top: 1rem;
+    line-height: 3.5rem;
 }
+
 .title-container .first {
     font-weight: 200;
     color: hsl(0, 36%, 70%);
 }
+
 .message-container {
-    margin-top: 1.5rem;
     line-height: 1.5rem;
     color: hsl(0, 36%, 70%);
     font-size: 16px;
+    margin-bottom: 5%;
 }
 
 .user-email-container {
+    position: relative; /* Ensure container is relative for absolute positioning */
     display: flex;
     align-items: center;
 }
@@ -66,39 +79,94 @@ main {
 form {
     display: flex;
     width: 100%;
-    padding-left: 5%;
     justify-content: center;
     align-items: center;
     background-color: transparent;
     border-radius: 2rem;
-    border: 1px solid hsl(0, 6%, 24%);
+    height: 3.4rem;
+    border: 1px solid hsl(0, 36%, 70%);
+    z-index: 0;
 }
 
+
 input[type="email"] {
-    width: 100%;
+    width: 100%; /* Adjust to accommodate error icon and padding */
     height: 100%;
     background: none;
     border: 0;
-    padding: 0;
-    outline: none; 
+    padding-left: 1.5rem;
+    outline: none;
+    z-index: 1;
+    font-weight: 800;
+    font-size: 17px;
+    border-radius: 2rem;
 }
+input[type="email"].input-error {
+    border: 2px solid red; /* Apply a 4px solid red border when there's an error */
+}
+
 input[type="email"]::placeholder {
     color: hsl(0, 36%, 70%);
 }
+
 button {
-    height: 3.4rem;
-    width: 6rem;
-    background-color: hsl(0, 36%, 70%);
+    position: absolute; /* Absolute positioning for button */
+    height: 3.4rem; /* Desired button height */
+    width: 6rem; /* Adjust width as needed */
+    background-image: linear-gradient(135deg, hsl(0, 80%, 86%), hsl(0, 80%, 86%));
     color: #ffffff;
     text-transform: uppercase;
     border-style: none;
     border-radius: 2rem;
     cursor: pointer;
     outline: none;
+    left: 83%; /* Position button from the right */
+    top: 50%; /* Vertically center the button */
+    transform: translateY(-50%); /* Correct vertical centering */
+    z-index: 2;
 }
 
+button:hover {
+    text-align: center;
+    color: hsl(0, 0%, 20%);
+    box-shadow: 0px 10px 20px 2px hsl(0, 36%, 70%);
+}
 
+#errorMessage {
+    width: 100%;
+    height: auto;
+    padding-top: 2%;
+    padding-left: 7%;
+    font-size: 11px;
+    color: hsl(0, 93%, 68%);
+    display: none;
+}
+
+#errorMessage.active {
+    display: block;
+    position:absolute;
+    bottom: -2rem;
+    font-weight: 800;
+    font-size: 12px;
+}
+
+#iconError {
+    display: none;
+}
+
+#iconError.visible {
+    display: inline-block;
+    position: absolute;
+    right: 20%;
+}
 
 .right-side-container {
-    background-color: lightblue;
+    background-image: url('./assets/hero-desktop.jpg');
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
 }
