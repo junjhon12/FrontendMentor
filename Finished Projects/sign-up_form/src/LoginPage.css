@@ -4,6 +4,7 @@
     padding: 0;
     margin: 0;
     font-family: 'Poppins', sans-serif;
+    box-sizing: border-box;
 }
 main {
     background-image: url('./assets/bg-intro-desktop.png'),linear-gradient(hsl(0, 100%, 74%), hsl(0, 100%, 74%));
@@ -11,30 +12,141 @@ main {
     background-position: center;
     background-size: cover;
     height: 100vh;
-    width: 100%;
     overflow: hidden;
 }
 
+.color {
+    color: hsl(0, 100%, 74%);
+    color: hsl(154, 59%, 51%);
+    color: hsl(248, 32%, 49%);
+    color: hsl(249, 10%, 26%);
+    color: hsl(246, 25%, 77%);
+}
 .main-container {
     display: flex;
     height: 100%;
     width: 100%;
     align-items: center;
+    justify-content: space-between;
+    padding: 0 17rem;
 }
 .left-container, .right-container {
     flex: 1;
 }
 
 .left-container {
-    background-color: lightgray;
+    overflow: hidden;
+    height: 100%;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+}
+.right-container {
+    height: 100%;
+}
+.left-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-self: center;
 }
 .big_text {
     font-weight: 700;
     color: white;
     font-size: 3rem;
+    line-height: 3.5rem;
 }
 .small_text {
     font-weight: 500;
     color: white;
+    line-height: 1.5rem;
+    letter-spacing: 10%;
 }
 
+.right-main-container {
+    height: 100%;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-right: 9rem;
+}
+.trial-container {
+    background-color: hsl(248, 32%, 49%);
+    color: white;
+    display: flex;
+    justify-content: center;
+    border-radius: 5px;
+    padding: 1rem;
+    margin-bottom: 1rem;
+}
+.register-container {
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+    border-radius: 5px;
+    height: auto;
+}
+.register-container .input {
+    position: relative; /* Make the input container the reference point */
+}
+.input {
+    margin-bottom: 1rem;
+}
+.input input {
+    padding: 1rem;
+    border-radius: 5px;
+    font-weight: 500;
+    border: 2px solid rgb(230, 229, 229);
+    width: 100%;
+}
+.input input:focus{
+    border: 2px solid rgb(170, 170, 170);
+    outline: none;
+}
+.errorSign {
+    visibility: hidden;
+    position: absolute;
+    right: 20px; /* Adjust this value for more or less space to the right */
+    top: 50%;
+    transform: translateY(-50%); /* Center the icon vertically */
+    width: 20px; /* Adjust size if needed */
+    height: 20px;
+    pointer-events: none; /* Prevent the icon from interfering with input clicks */
+}
+.errorMessage {
+    display: none;
+    font-size: 10px;
+    font-weight: 500;
+    color: hsl(0, 100%, 74%);
+    align-items: center;
+    justify-content: flex-end;
+    padding-top: 1%;
+}
+.signUp-button {
+    display: flex;
+    justify-content: center;
+    background-color: hsl(154, 59%, 51%);
+    color: white;
+    font-weight: 600;
+    border-radius: 5px;
+    padding: 1rem;
+    letter-spacing: 2px;
+    border: none;
+}
+.signUp-button:hover {
+    cursor: pointer;
+    background-color: hsl(154, 69%, 69%);
+}
+.terms {
+    display: flex;
+    color: hsl(246, 25%, 77%);
+    justify-content: center;
+    padding: 1rem;
+    font-size: 10px;
+}
+.terms b {
+    color: hsl(0, 100%, 74%);
+    font-weight: 700;
+}
