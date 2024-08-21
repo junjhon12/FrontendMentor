@@ -1,6 +1,4 @@
 import { useState } from 'react';
-import desktopBackground from './assets/bg-intro-desktop.png';
-import phoneBackground from './assets/bg-intro-mobile.png';
 import iconError from './assets/icon-error.svg';
 import './LoginPage.css';
 
@@ -81,7 +79,7 @@ function LoginPage() {
                         <div className="trial-container">
                             <span><b>Try it free 7 days</b> then $20/mo. thereafter</span>
                         </div>
-                        <div className="register-container">
+                        <form className="register-container" onSubmit={handleSubmit}>
                             <div className="input">
                                 <input 
                                     type="text" 
@@ -130,11 +128,11 @@ function LoginPage() {
                                 <img src={iconError} alt="" className={`errorSign ${formErrors.password ? 'visible' : 'hidden'}`} />
                                 {formErrors.password && <span className="errorMessage"><i>{formErrors.password}</i></span>}
                             </div>
-                            <button className="signUp-button" onClick={handleSubmit}>CLAIM YOUR FREE TRIAL</button>
+                            <button type="submit" className="signUp-button">CLAIM YOUR FREE TRIAL</button>
                             <div className="terms">
                                 <span className="term">By clicking the button, you are agreeing to our <b>Terms and Services</b></span>
                             </div>
-                        </div>
+                        </form>
                     </div>
                 </div>
             </div>
