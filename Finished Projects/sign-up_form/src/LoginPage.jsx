@@ -3,7 +3,7 @@ import iconError from './assets/icon-error.svg';
 import './LoginPage.css';
 
 function LoginPage() {
-    // State to track form input values and errors
+    // State to hold form data
     const [formData, setFormData] = useState({
         firstName: '',
         lastName: '',
@@ -11,6 +11,7 @@ function LoginPage() {
         password: ''
     });
 
+    // State to hold form validation errors
     const [formErrors, setFormErrors] = useState({
         firstName: '',
         lastName: '',
@@ -18,37 +19,50 @@ function LoginPage() {
         password: ''
     });
 
-    // Handle input change
+    // Handle changes to input fields
     const handleInputChange = (e) => {
         const { name, value } = e.target;
+
+        // Update form data state
         setFormData({
             ...formData,
             [name]: value
         });
+
+        // Clear the error for the updated field
+        setFormErrors((prevErrors) => ({
+            ...prevErrors,
+            [name]: ''
+        }));
     };
 
-    // Validate inputs
+    // Validate input fields
     const validateInputs = () => {
         const errors = {};
-    
+
+        // Check for empty first name
         if (!formData.firstName.trim()) {
             errors.firstName = 'First name cannot be empty';
         }
+
+        // Check for empty last name
         if (!formData.lastName.trim()) {
             errors.lastName = 'Last name cannot be empty';
         }
+
+        // Check for empty email or invalid format
         if (!formData.email.trim()) {
             errors.email = 'Email cannot be empty';
-        } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
-            errors.email = 'Looks like this is not an email';
+        } else if (!/^[^\s@]+@[^\s@]+\.(com)$/.test(formData.email)) {
+            errors.email = 'Email must be in a valid format and end with .com';
         }
+
+        // Check for empty password
         if (!formData.password.trim()) {
             errors.password = 'Password cannot be empty';
         }
-    
+
         setFormErrors(errors);
-    
-        // Return true if there are no errors
         return Object.keys(errors).length === 0;
     };
 
@@ -56,11 +70,10 @@ function LoginPage() {
     const handleSubmit = (e) => {
         e.preventDefault();
 
+        // Validate inputs and either submit or log errors
         if (validateInputs()) {
-            // Form is valid, submit the data (e.g., make an API call)
             console.log('Form submitted:', formData);
         } else {
-            // Form is invalid, display errors
             console.log('Form has errors:', formErrors);
         }
     };
@@ -71,7 +84,11 @@ function LoginPage() {
                 <div className="left-container">
                     <div className="left-text">
                         <span className="big_text">Learn to code by<br /> watching others</span><br />
-                        <span className="small_text">See how experienced developers solve problems in real-time.<br />Watching scripted tutorials is great, but understanding how <br />developers think is invaluable.</span>
+                        <span className="small_text">
+                            See how experienced developers solve problems in real-time.<br />
+                            Watching scripted tutorials is great, but understanding how<br />
+                            developers think is invaluable.
+                        </span>
                     </div>
                 </div>
                 <div className="right-container">
@@ -80,6 +97,7 @@ function LoginPage() {
                             <span><b>Try it free 7 days</b> then $20/mo. thereafter</span>
                         </div>
                         <form className="register-container" onSubmit={handleSubmit}>
+                            {/* First Name Input */}
                             <div className="input">
                                 <input 
                                     type="text" 
@@ -89,9 +107,13 @@ function LoginPage() {
                                     value={formData.firstName}
                                     onChange={handleInputChange}
                                 />
-                                <img src={iconError} alt="" className={`errorSign ${formErrors.firstName ? 'visible' : 'hidden'}`} />
-                                {formErrors.firstName && <span className="errorMessage"><i>{formErrors.firstName}</i></span>}
+                                <img src={iconError} alt="" className={`errorSign ${formErrors.firstName ? 'visible' : ''}`} />
+                                <span className={`errorMessage ${formErrors.firstName ? 'visible' : ''}`}>
+                                    <i>{formErrors.firstName}</i>
+                                </span>
                             </div>
+
+                            {/* Last Name Input */}
                             <div className="input">
                                 <input 
                                     type="text" 
@@ -101,9 +123,13 @@ function LoginPage() {
                                     value={formData.lastName}
                                     onChange={handleInputChange}
                                 />
-                                <img src={iconError} alt="" className={`errorSign ${formErrors.lastName ? 'visible' : 'hidden'}`} />
-                                {formErrors.lastName && <span className="errorMessage"><i>{formErrors.lastName}</i></span>}
+                                <img src={iconError} alt="" className={`errorSign ${formErrors.lastName ? 'visible' : ''}`} />
+                                <span className={`errorMessage ${formErrors.lastName ? 'visible' : ''}`}>
+                                    <i>{formErrors.lastName}</i>
+                                </span>
                             </div>
+
+                            {/* Email Input */}
                             <div className="input">
                                 <input 
                                     type="email" 
@@ -113,9 +139,13 @@ function LoginPage() {
                                     value={formData.email}
                                     onChange={handleInputChange}
                                 />
-                                <img src={iconError} alt="" className={`errorSign ${formErrors.email ? 'visible' : 'hidden'}`} />
-                                {formErrors.email && <span className="errorMessage"><i>{formErrors.email}</i></span>}
+                                <img src={iconError} alt="" className={`errorSign ${formErrors.email ? 'visible' : ''}`} />
+                                <span className={`errorMessage ${formErrors.email ? 'visible' : ''}`}>
+                                    <i>{formErrors.email}</i>
+                                </span>
                             </div>
+
+                            {/* Password Input */}
                             <div className="input">
                                 <input 
                                     type="password" 
@@ -125,12 +155,20 @@ function LoginPage() {
                                     value={formData.password}
                                     onChange={handleInputChange}
                                 />
-                                <img src={iconError} alt="" className={`errorSign ${formErrors.password ? 'visible' : 'hidden'}`} />
-                                {formErrors.password && <span className="errorMessage"><i>{formErrors.password}</i></span>}
+                                <img src={iconError} alt="" className={`errorSign ${formErrors.password ? 'visible' : ''}`} />
+                                <span className={`errorMessage ${formErrors.password ? 'visible' : ''}`}>
+                                    <i>{formErrors.password}</i>
+                                </span>
                             </div>
+
+                            {/* Submit Button */}
                             <button type="submit" className="signUp-button">CLAIM YOUR FREE TRIAL</button>
+
+                            {/* Terms and Services Notice */}
                             <div className="terms">
-                                <span className="term">By clicking the button, you are agreeing to our <b>Terms and Services</b></span>
+                                <span className="term">
+                                    By clicking the button, you are agreeing to our <b>Terms and Services</b>
+                                </span>
                             </div>
                         </form>
                     </div>
