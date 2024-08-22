@@ -35,7 +35,7 @@ main {
     width: 100%;
     align-items: center;
     justify-content: space-between;
-    padding: 0 17rem;
+    padding: 0 5rem;
 }
 
 /* Left and right containers layout */
@@ -49,6 +49,7 @@ main {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    padding-left: 2rem;
 }
 
 .right-container {
@@ -84,7 +85,7 @@ main {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    margin-right: 9rem;
+    margin-right: 2rem;
 }
 
 /* Trial container styles */
@@ -259,7 +260,7 @@ main {
 /* Desktop styles (for screens wider than 1440px) */
 @media (min-width: 1440px) {
     .main-container {
-        padding: 0 20rem; /* Increase padding for larger screens */
+        padding: 0 15rem; /* Increase padding for larger screens */
     }
 
     .left-text {
